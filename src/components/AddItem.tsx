@@ -8,6 +8,10 @@ export const AddItem = (items: AddItemProperties) => {
     const [text, setText] = useState("")
     const [error, setError] = useState(false);
 
+    const handleEnterClick = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        if (e.key === "Enter") { handleClick() }
+    }
+
     const handleClick = () => {
         if (text.trim()) {
             items.onAdd(text);
@@ -27,6 +31,7 @@ export const AddItem = (items: AddItemProperties) => {
                     setError(false);
                 }}
                 placeholder="Add new todo..."
+                onKeyDown={handleEnterClick}
                 className={`flex-1 border-2 p-2 rounded focus:outline-none ${error ? "border-red-500" : "border-gray-200 focus:border-indigo-500"
                     }`}
             />

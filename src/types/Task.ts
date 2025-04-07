@@ -1,5 +1,5 @@
-export type Todo = {
-    id: number;
+export type Task = {
+    id: string;
     text: string;
     done: boolean;
   };
