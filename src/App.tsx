@@ -6,8 +6,8 @@ import "./styles.scss";
 
 export default function App() {
   const [todos] = useState([
-    { text: "Buy milk", done: true },
-    { text: "Buy bread", done: false },
+    { id: 1, text: "Buy milk", done: true },
+    { id: 2, text: "Buy bread", done: false },
   ]);
 
   return (

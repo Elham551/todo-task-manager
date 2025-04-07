@@ -1,4 +1,4 @@
-import React from "react";
+import { TodoItem } from "../components/TodoItem"
 
 type TodoListProps = {
   todos: any[];
@@ -8,7 +8,7 @@ export const TodoList = ({ todos }: TodoListProps) => {
     <ul className="todoList">
       {todos.map((item, i) => (
         <li key={i}>
-          <span data-testid={`todo${i}`}>{item.text}</span>
+          <TodoItem item={item}></TodoItem>
         </li>
       ))}
     </ul>
