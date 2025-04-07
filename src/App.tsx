@@ -24,8 +24,8 @@ export default function App() {
   }
 
   return (
-    <div className="todoListApp">
-      <div className="forsta-logo" />
+    <div className="max-w-md mx-auto mt-10 bg-white shadow-lg rounded-lg p-6">
+      <h1 className="text-2xl font-semibold text-gray-800 mb-4 text-center">My Todo App</h1>
       <TodoList todos={todos} onUpdate={updateList} />
       <AddItem onAdd={AddItemToList} />
     </div>

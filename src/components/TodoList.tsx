@@ -9,12 +9,10 @@ export const TodoList = ({ todos, onUpdate }: TodoListProps) => {
     onUpdate({ ...item })
   }
   return (
-    <ul className="todoList">
-      {todos.map((item, i) => (
-        <li key={i}>
-          <TodoItem
-            item={item}
-            onUpdate={handleUpdate} />
+    <ul className="space-y-2">
+      {todos.map((item) => (
+        <li key={item.id} className="flex items-center justify-between bg-gray-100 p-3 rounded">
+          <TodoItem item={item} onUpdate={handleUpdate} />
         </li>
       ))}
     </ul>
