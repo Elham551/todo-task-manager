@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
-import "./styles.scss";
 import { TodoList } from "./components/TodoList";
 import { AddItem } from "./components/AddItem";
 import { Task } from "./types/Task";
 import { TaskDetail } from "./components/TaskDetail";
 import { useSelectedItem } from "./contexts/SelectedItemContext";
+import "./styles.scss";
 
 export default function App() {
 
   const initialTodos: Task[] = [
-    { id: "c8088529-8382-4c25-bbee-e526af316a28", text: "Buy milk", done: true },
-    { id: "0b24ced7-34ce-4c11-9912-b8acf8c9742f", text: "Buy bread", done: false },
+    { id: "c8088529-8382-4c25-bbee-e526af316a28", text: "Buy milk", done: true, createAt: 1744036001 },
+    { id: "0b24ced7-34ce-4c11-9912-b8acf8c9742f", text: "Buy bread", done: false, createAt: 1744035931 },
   ];
 
   const [todos, setTodos] = useState<Task[]>(() => {
@@ -25,7 +25,9 @@ export default function App() {
   }, [todos]);
 
   const AddItemToList = (title: string) => {
-    setTodos([...todos, { id: crypto.randomUUID(), text: title, done: false }])
+    const newTodo = { id: crypto.randomUUID(), text: title, done: false, createAt: Date.now().valueOf() }
+    const updatedTodos = [...todos, newTodo].sort((a, b) => b.createAt - a.createAt);
+    setTodos(updatedTodos)
   }
 
   const updateList = (item: Task) => {
