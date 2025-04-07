@@ -8,8 +8,10 @@ export const AddItem = (items: AddItemProperties) => {
     const [text, setText] = useState("")
 
     const handleClick = () => {
-        items.onAdd(text)
-        setText("")
+        if (text !== "") {
+            items.onAdd(text)
+            setText("")
+        }
     }
     return (<>
         <div className="mt-4 flex items-center gap-2">
